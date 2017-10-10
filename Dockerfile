@@ -22,7 +22,7 @@ RUN echo 'deb http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list \
 RUN npm install -g gulp
 
 # Install Composer
-RUN curl --silent --show-error https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 
 VOLUME ["/build"]
 WORKDIR "/build"
