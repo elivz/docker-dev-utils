@@ -31,7 +31,14 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     && chmod +x wp-cli.phar \
     && mv wp-cli.phar /usr/local/bin/wp
 
+RUN groupadd --gid 3434 www-user \
+    && useradd --uid 3434 --gid www-user --shell /bin/bash --create-home www-user \
+    && echo 'www-user ALL=NOPASSWD: ALL' >> /etc/sudoers.d/50-www-user \
+    && echo 'Defaults    env_keep += "DEBIAN_FRONTEND"' >> /etc/sudoers.d/env_keep
+
 VOLUME ["/build"]
 WORKDIR "/build"
 
-CMD ["gulp", "watch"]
+USER www-user
+
+CMD ["bash"]
