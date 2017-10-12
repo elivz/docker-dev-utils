@@ -1,5 +1,7 @@
 FROM node:8
 
+MAINTAINER Eli Van Zoeren
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
