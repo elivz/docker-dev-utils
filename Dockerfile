@@ -10,7 +10,7 @@ RUN echo 'deb http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list \
     && wget https://www.dotdeb.org/dotdeb.gpg \
     && apt-key add dotdeb.gpg \
     && apt-get update && apt-get install -yqq --no-install-recommends \
-    	git locales sudo openssh-client ca-certificates tar gzip unzip zip
+    	git locales sudo openssh-client ca-certificates tar gzip unzip zip \
     	php7.0 php7.0-mbstring rsync \
     && apt-get -y autoremove && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
