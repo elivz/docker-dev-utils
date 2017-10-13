@@ -2,8 +2,6 @@ FROM node:latest
 
 MAINTAINER Eli Van Zoeren
 
-ENV DEBIAN_FRONTEND=noninteractive
-
 # Install Packages
 RUN echo 'deb http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list \
     && echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list \
@@ -21,9 +19,9 @@ RUN npm install -g gulp
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 
-VOLUME /build
+VOLUME ["/build"]
 WORKDIR /build
 
 USER node
 
-CMD ["bash"]
+CMD ["yarn"]
