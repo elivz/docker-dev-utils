@@ -22,5 +22,3 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 WORKDIR /build
 
 USER node
-
-CMD ["yarn"]
